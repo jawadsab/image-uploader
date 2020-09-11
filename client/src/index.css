@@ -1,13 +1,116 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@500&display=swap');
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAFAFB;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.card-container {
+ 
+  height: 469px;
+  width: 402px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+.card-container span {
+  font-weight: 500;
+  font-size: 12px;
+  color: #BDBDBD;
+} 
+.header h3 {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.035em;
+}
+.header p {
+  font-weight: normal;
+  font-size: 11px;
+  letter-spacing: -0.035em;
+  text-align: center;
+  margin-top: 15px;
+}
+.image-container {
+  background: #F6F8FB;
+  height: 218.9px;
+  width: 338px;
+  border: 1px dashed #97BEF4;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+.img-box {
+  display: flex;
+  flex-direction: column;
+  
+}
+.img-box span {
+  font-size: 12px;
+  color:  #BDBDBD;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.image-container-over {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.choose-btn {
+  padding: 10px 15px;
+  background: #2F80ED;
+  border-radius: 8px;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+
+}
+
+.img-upload {
+  display: none;
+}
+
+.thumb {
+  width: 80%;
+  height: 80%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #cccccc;
+  background-size: cover;
+  position: relative;
+}
+
+.thumb::after {
+  content:attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: white;
+  background-color: rgba(0,0,0,0.75);
+  font-size: 13px;
+  text-align: center;
 }
