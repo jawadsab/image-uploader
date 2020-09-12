@@ -76,7 +76,7 @@ body {
   border-width: 2px;
 }
 
-.choose-btn {
+.submit-btn {
   padding: 10px 15px;
   background: #2F80ED;
   border-radius: 8px;
@@ -93,13 +93,15 @@ body {
 }
 
 .thumb {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
   overflow: hidden;
   background-color: #cccccc;
+  background-position: center;
   background-size: cover;
   position: relative;
+  display: none;
 }
 
 .thumb::after {

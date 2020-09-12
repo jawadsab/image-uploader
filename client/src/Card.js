@@ -1,12 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Image from "./Image"
 
 const Card = () => {
 
-    const handleChoose = () => {
-        const realBtn = document.getElementById("real-file")
-        const customBtn = document.getElementById("custom-btn")
-        realBtn.click()
+
+    const [fileInputState,setFileInputState] = useState("")
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            await fetch("/api/upload",{
+                method:"POST",
+                body:JSON.stringify({data:fileInputState}),
+                headers:{"Content-type":"application/json"}
+            })
+        } catch (error) {
+            console.log(error)
+        }
+
     }
     return (
         <div className="card-container">
@@ -14,10 +25,11 @@ const Card = () => {
                 <h3>Upload your image</h3>
                 <p>file should be .jpeg or .png</p>
             </div>
-            <Image />
+            <form>
+                <Image fileInputState={fileInputState} setFileInputState={setFileInputState} />
+            </form>
             <span>or</span>
-            <input type="file" id="real-file" hidden="hidden" />
-            <button onClick={handleChoose} id="custom-btn" className="choose-btn">Choose a file</button>
+            <button onClick={handleSubmit}  id="custom-btn" className="submit-btn">Upload</button>
         </div>
     )
 }
